@@ -1,26 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const gallery = document.getElementById("gallery");
+  const gallery = document.getElementById("gallery"); // Ensure this is an <img> tag
   const box = document.querySelector(".box");
   const colorButton = document.getElementById("changeColor");
   const toggleButton = document.getElementById("toggleImage");
 
   colorButton.addEventListener("click", () => {
-    // Fixed: Changed 'bx' to 'box'
     box.style.backgroundColor = "blue"; 
   });
 
   let toggled = false;
   toggleButton.addEventListener("click", () => {
-    if (toggled) {
-      gallery.src = "./assets/image1.jpg";
-      toggled = false;
+    // Optimization: Check if gallery is an image tag before setting src
+    if (gallery && gallery.tagName === 'IMG') {
+      gallery.src = toggled ? "./assets/image1.jpeg" : "./assets/image2.jpeg"; "./assets/image3.jpeg";
+      toggled = !toggled;
     } else {
-      // Note: Ensure this file actually exists or use a valid fallback URL
-      gallery.src = "./assets/image2.jpg"; 
-      toggled = true;
+      console.error("Element with ID 'gallery' is not an <img> tag.");
     }
   });
 
-  // Fixed: Added missing ')'
   console.log("Page loaded!"); 
-}); // Fixed: Added missing '}'
+});

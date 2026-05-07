@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleButton.addEventListener("click", () => {
     // Optimization: Check if gallery is an image tag before setting src
     if (gallery && gallery.tagName === 'IMG') {
-      gallery.src = toggled ? "./assets/images/image1.jpeg" : "./assets/images/image2.jpeg";
+      gallery.src = toggled ? "./assets/images/image1.jpeg" : "./assets/images/image2.jpeg": "./assets/images/image3.jpeg";
       toggled = !toggled;
     } else {
       console.error("Element with ID 'gallery' is not an <img> tag.");
